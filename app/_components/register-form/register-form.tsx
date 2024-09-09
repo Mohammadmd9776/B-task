@@ -157,7 +157,7 @@ function RegisterForm() {
   const [priodR, setPriodR] = useState<{ name: string; value: number }[]>([]);
 
   const {
-    control,
+    reset,
     register,
     handleSubmit,
     watch,
@@ -240,6 +240,8 @@ function RegisterForm() {
 
     localStorage.setItem('data', JSON.stringify(updatedData));
     alert('اطلاعات با موفقیت ذخیره شد!');
+    setValue('step', 'USER_INFO');
+    reset();
   });
 
   const handleBack = () => {
@@ -412,11 +414,10 @@ function RegisterForm() {
                     )}
                   </div>
                   <div>
-                    <label htmlFor="monthlyInstallment">
-                      مبلغ قسط ماهیانه{' '}
-                    </label>
+                    <label htmlFor="monthlyInstallment">مبلغ قسط ماهیانه</label>
                     <input
                       id="monthlyInstallment"
+                      disabled
                       {...register('monthlyInstallment')}
                     />
                     {errors.monthlyInstallment && (
@@ -431,6 +432,7 @@ function RegisterForm() {
                     </label>
                     <input
                       id="annualInterestPercentage"
+                      disabled
                       {...register('annualInterestPercentage')}
                     />
                     {errors.annualInterestPercentage && (
