@@ -1,0 +1,45 @@
+@import '../../variables.module.scss';
+
+.test {
+  width: 100%;
+  display: flex;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 100%;
+  padding: $input-padding;
+  border: none;
+  border-radius: $border-radius;
+  background-color: $border-color-focus;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color $transition-duration ease;
+
+  &:hover {
+    background-color: darken($border-color-focus, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.error-message {
+  color: $error-color;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid $error-color;
+  background-color: rgba($error-color, 0.1);
+  padding: 10px;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 4px rgba($error-color, 0.1);
+}

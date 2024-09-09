@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'variables.module.scss';
+form {
+  max-width: 500px;
+  overflow-y: auto;
+  max-height: 90vh;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+@mixin shared-styles {
+  width: 100%;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $input-padding;
+  background-color: $background-color;
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: border-color $transition-duration ease,
+    background-color $transition-duration ease;
+}
+
+select {
+  @include shared-styles;
+}
+
+input {
+  @include shared-styles;
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+
+  &:focus {
+    border-color: $border-color-focus;
+    background-color: $background-color-focus;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
